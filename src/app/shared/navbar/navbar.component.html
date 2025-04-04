@@ -1,0 +1,122 @@
+<nav class="navbar">
+  <div class="navbar-container">
+
+    <!-- Logo / Ana sayfa -->
+    <div class="navbar-brand">
+      <a routerLink="/" class="logo-link">
+        <img src="images/quendrologo.avif" alt="Quendro Logo" class="logo" />
+      </a>
+    </div>
+
+    <!-- Mobil Menü Butonu -->
+    <button class="mobile-toggle" (click)="toggleMobileMenu()">
+      <i class="bi" [ngClass]="{'bi-list': !mobileMenuOpen, 'bi-x-lg': mobileMenuOpen}"></i>
+    </button>
+
+    <!-- Menü -->
+    <div class="navbar-menu" [ngClass]="{'is-active': mobileMenuOpen}">
+      <ul class="nav-links">
+        
+        <!-- Home -->
+        <li class="nav-item">
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link" (click)="closeMobileMenu()">
+            <i class="bi bi-house"></i>
+            <span>Home</span>
+          </a>
+        </li>
+
+        <!-- Referral Prog -->
+        <li class="nav-item">
+          <a routerLink="/referral-prog" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">
+            <i class="bi bi-people"></i>
+            <span>Referral Prog.</span>
+          </a>
+        </li>
+
+        <!-- Services (Dropdown) -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" (click)="toggleDropdown('services')">
+            <i class="bi bi-gear"></i>
+            <span>Services</span>
+            <i class="bi bi-chevron-down dropdown-icon"></i>
+          </a>
+          <ul class="dropdown-menu" [ngClass]="{'show': activeDropdown === 'services'}">
+            <li><a routerLink="/services" routerLinkActive="active" (click)="closeMobileMenu()">All Services</a></li>
+            <li><a routerLink="/services/software-consulting" routerLinkActive="active" (click)="closeMobileMenu()">Software Consulting</a></li>
+            <li><a routerLink="/services/outsourcing" routerLinkActive="active" (click)="closeMobileMenu()">Outsourcing</a></li>
+            <li><a routerLink="/services/outstaffing" routerLinkActive="active" (click)="closeMobileMenu()">Outstaffing</a></li>
+            <li><a routerLink="/services/development-teams" routerLinkActive="active" (click)="closeMobileMenu()">Development Teams</a></li>
+            <li><a routerLink="/services/custom-software-development" routerLinkActive="active" (click)="closeMobileMenu()">Custom Software Development</a></li>
+            <li><a routerLink="/services/fpga-board-bring-up" routerLinkActive="active" (click)="closeMobileMenu()">FPGA Board Bring-up</a></li>
+            <li><a routerLink="/services/project-management" routerLinkActive="active" (click)="closeMobileMenu()">Project Management</a></li>
+          </ul>
+        </li>
+
+        <!-- Tech. Competencies (Dropdown) -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" (click)="toggleDropdown('tech')">
+            <i class="bi bi-cpu"></i>
+            <span>Tech. Competencies</span>
+            <i class="bi bi-chevron-down dropdown-icon"></i>
+          </a>
+          <ul class="dropdown-menu" [ngClass]="{'show': activeDropdown === 'tech'}">
+            <li><a routerLink="/tech-competencies" routerLinkActive="active" (click)="closeMobileMenu()">All Competencies</a></li>
+            <li><a routerLink="/tech-competencies/c" routerLinkActive="active" (click)="closeMobileMenu()">C</a></li>
+            <li><a routerLink="/tech-competencies/cpp" routerLinkActive="active" (click)="closeMobileMenu()">C++</a></li>
+            <li><a routerLink="/tech-competencies/embedded-development" routerLinkActive="active" (click)="closeMobileMenu()">Embedded Development</a></li>
+            <li><a routerLink="/tech-competencies/fpga-development-simulation" routerLinkActive="active" (click)="closeMobileMenu()">FPGA Development & Simulation</a></li>
+            <li><a routerLink="/tech-competencies/csharp-dotnet" routerLinkActive="active" (click)="closeMobileMenu()">C# / .NET</a></li>
+          </ul>
+        </li>
+
+       <!-- Trainings (Dropdown) -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" (click)="toggleDropdown('trainings')">
+          <i class="bi bi-book"></i>
+          <span>Trainings</span>
+          <i class="bi bi-chevron-down dropdown-icon"></i>
+        </a>
+        <ul class="dropdown-menu" [ngClass]="{'show': activeDropdown === 'trainings'}">
+          <li><a routerLink="/trainings" routerLinkActive="active" (click)="closeMobileMenu()">All Trainings</a></li>
+          <li><a routerLink="/trainings/robotic-academy" routerLinkActive="active" (click)="closeMobileMenu()">Robotic Academy</a></li>
+        </ul>
+      </li>
+
+       
+        <!-- Industries (Dropdown) -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" (click)="toggleDropdown('industries')">
+          <i class="bi bi-building"></i>
+          <span>Industries</span>
+          <i class="bi bi-chevron-down dropdown-icon"></i>
+        </a>
+        <ul class="dropdown-menu" [ngClass]="{'show': activeDropdown === 'industries'}">
+          <li><a routerLink="/industries/defence" routerLinkActive="active" (click)="closeMobileMenu()">Defence</a></li>
+          <li><a routerLink="/industries/iot" routerLinkActive="active" (click)="closeMobileMenu()">IoT</a></li>
+          <li><a routerLink="/industries/automotive" routerLinkActive="active" (click)="closeMobileMenu()">Automotive</a></li>
+          <li><a routerLink="/industries/aerospace" routerLinkActive="active" (click)="closeMobileMenu()">Aerospace</a></li>
+          <li><a routerLink="/industries/fintech-finance" routerLinkActive="active" (click)="closeMobileMenu()">FinTech & Finance</a></li>
+        </ul>
+      </li>
+
+
+        <!-- About -->
+        <li class="nav-item">
+          <a routerLink="/about" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">
+            <i class="bi bi-info-circle"></i>
+            <span>About</span>
+          </a>
+        </li>
+
+        <!-- Contact -->
+        <li class="nav-item contact-item">
+          <a routerLink="/contact" routerLinkActive="active" class="nav-link contact-button" (click)="closeMobileMenu()">
+            <i class="bi bi-envelope"></i>
+            <span>Contact</span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>

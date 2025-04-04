@@ -1,0 +1,285 @@
+<div class="referral-form-container">
+  <div class="form-header">
+    <h1>Referral Program</h1>
+    <p class="subtitle">Help us grow and earn rewards by referring new clients</p>
+  </div>
+
+  <div class="form-progress">
+    <div class="step" [class.active]="currentStep >= 1" [class.completed]="currentStep > 1">
+      <div class="step-number">1</div>
+      <div class="step-label">Your Information</div>
+    </div>
+    <div class="progress-line" [class.active]="currentStep > 1"></div>
+    <div class="step" [class.active]="currentStep >= 2" [class.completed]="currentStep > 2">
+      <div class="step-number">2</div>
+      <div class="step-label">Company Details</div>
+    </div>
+    <div class="progress-line" [class.active]="currentStep > 2"></div>
+    <div class="step" [class.active]="currentStep >= 3" [class.completed]="currentStep > 3">
+      <div class="step-number">3</div>
+      <div class="step-label">Confirmation</div>
+    </div>
+  </div>
+
+  <!-- Error Message Display -->
+  <div class="error-message" *ngIf="errorMessage">
+    <i class="bi bi-exclamation-triangle-fill"></i>
+    {{ errorMessage }}
+  </div>
+
+  <div class="form-card">
+    <!-- Step 1: Personal Information -->
+    <div class="form-step" *ngIf="currentStep === 1">
+      <h2>Your Information</h2>
+      <p class="step-description">Tell us about yourself so we can keep in touch</p>
+      
+      <div class="form-group" [class.has-error]="validationErrors.step1.fullName">
+        <label for="fullName">Full Name <span class="required">*</span></label>
+        <input 
+          type="text" 
+          id="fullName" 
+          [(ngModel)]="formData.fullName" 
+          placeholder="Enter your full name"
+          class="form-control"
+          required
+        >
+        <div class="error-text" *ngIf="validationErrors.step1.fullName">
+          {{ validationErrors.step1.fullName }}
+        </div>
+      </div>
+      
+      <div class="form-group" [class.has-error]="validationErrors.step1.email">
+        <label for="email">Email <span class="required">*</span></label>
+        <input 
+          type="email" 
+          id="email" 
+          [(ngModel)]="formData.email" 
+          placeholder="Enter your email address"
+          class="form-control"
+          required
+        >
+        <div class="error-text" *ngIf="validationErrors.step1.email">
+          {{ validationErrors.step1.email }}
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input 
+          type="tel" 
+          id="phone" 
+          [(ngModel)]="formData.phone" 
+          placeholder="Enter your phone number"
+          class="form-control"
+        >
+      </div>
+      
+      <div class="form-group">
+        <label for="linkedIn">LinkedIn Profile</label>
+        <div class="input-with-icon">
+          <i class="bi bi-linkedin"></i>
+          <input 
+            type="url" 
+            id="linkedIn" 
+            [(ngModel)]="formData.linkedIn" 
+            placeholder="Enter your LinkedIn profile URL"
+            class="form-control"
+          >
+        </div>
+      </div>
+      
+      <div class="form-group" [class.has-error]="validationErrors.step1.country">
+        <label for="country">Country <span class="required">*</span></label>
+        <div class="select-wrapper">
+          <select 
+            id="country" 
+            [(ngModel)]="formData.country"
+            class="form-control"
+            required
+          >
+            <option value="" disabled selected>Select your country</option>
+            <option value="de">Germany</option>
+            <option value="us">United States</option>
+            <option value="uk">United Kingdom</option>
+            <option value="fr">France</option>
+            <option value="es">Spain</option>
+            <option value="it">Italy</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="error-text" *ngIf="validationErrors.step1.country">
+          {{ validationErrors.step1.country }}
+        </div>
+      </div>
+      
+      <div class="form-actions">
+        <button type="button" class="btn btn-primary" (click)="nextStep()">Continue</button>
+      </div>
+    </div>
+    
+    <!-- Step 2: Referral Information -->
+    <div class="form-step" *ngIf="currentStep === 2">
+      <h2>Company Details</h2>
+      <p class="step-description">Tell us about the company you're referring to us</p>
+      
+      <div class="form-group">
+        <label for="yourCompany">Your Company</label>
+        <input 
+          type="text" 
+          id="yourCompany" 
+          [(ngModel)]="formData.yourCompany" 
+          placeholder="Enter your company name"
+          class="form-control"
+        >
+      </div>
+      
+      <div class="form-group" [class.has-error]="validationErrors.step2.expertise">
+        <label for="expertise">What is your area of expertise? <span class="required">*</span></label>
+        <div class="select-wrapper">
+          <select 
+            id="expertise" 
+            [(ngModel)]="formData.expertise"
+            class="form-control"
+            required
+          >
+            <option value="" disabled selected>Select your expertise</option>
+            <option value="software">Software Development</option>
+            <option value="hardware">Hardware Engineering</option>
+            <option value="ai">Artificial Intelligence</option>
+            <option value="cloud">Cloud Computing</option>
+            <option value="iot">IoT Solutions</option>
+            <option value="consulting">IT Consulting</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="error-text" *ngIf="validationErrors.step2.expertise">
+          {{ validationErrors.step2.expertise }}
+        </div>
+      </div>
+      
+      <div class="form-group" [class.has-error]="validationErrors.step2.referredCompany">
+        <label for="referredCompany">To which company would you recommend Quendro GmbH? <span class="required">*</span></label>
+        <input 
+          type="text" 
+          id="referredCompany" 
+          [(ngModel)]="formData.referredCompany" 
+          placeholder="Enter company name"
+          class="form-control"
+          required
+        >
+        <div class="error-text" *ngIf="validationErrors.step2.referredCompany">
+          {{ validationErrors.step2.referredCompany }}
+        </div>
+      </div>
+      
+      <div class="form-group" [class.has-error]="validationErrors.step2.referredWebsite">
+        <label for="referredWebsite">Referred Company's Website <span class="required">*</span></label>
+        <div class="input-with-icon">
+          <i class="bi bi-globe"></i>
+          <input 
+            type="url" 
+            id="referredWebsite" 
+            [(ngModel)]="formData.referredWebsite" 
+            placeholder="Enter company website URL"
+            class="form-control"
+            required
+          >
+        </div>
+        <div class="error-text" *ngIf="validationErrors.step2.referredWebsite">
+          {{ validationErrors.step2.referredWebsite }}
+        </div>
+      </div>
+      
+      <div class="form-group" [class.has-error]="validationErrors.step2.industry">
+        <label for="industry">Which Industry Is the Company You Are Referring In? <span class="required">*</span></label>
+        <input 
+          type="text" 
+          id="industry" 
+          [(ngModel)]="formData.industry" 
+          placeholder="Enter industry name"
+          class="form-control"
+          required
+        >
+        <div class="error-text" *ngIf="validationErrors.step2.industry">
+          {{ validationErrors.step2.industry }}
+        </div>
+      </div>
+      
+      <div class="form-actions">
+        <button type="button" class="btn btn-outline" (click)="previousStep()">Back</button>
+        <button type="button" class="btn btn-primary" (click)="nextStep()">Continue</button>
+      </div>
+    </div>
+    
+    <!-- Step 3: Final Information & Submit -->
+    <div class="form-step" *ngIf="currentStep === 3">
+      <h2>Final Information</h2>
+      <p class="step-description">Almost done! Just a few more details</p>
+      
+      <div class="form-group">
+        <label for="message">Additional Information</label>
+        <textarea 
+          id="message" 
+          [(ngModel)]="formData.message" 
+          placeholder="Any specific details or information about this referral that might be helpful"
+          class="form-control textarea"
+          rows="4"
+        ></textarea>
+      </div>
+      
+      <div class="form-group checkbox-group">
+        <label class="checkbox-container">
+          <input 
+            type="checkbox" 
+            id="canInvoice" 
+            [(ngModel)]="formData.canInvoice"
+          >
+          <span class="checkmark"></span>
+          <span class="checkbox-label">I can issue an invoice for my commission to Quendro GmbH</span>
+        </label>
+      </div>
+      
+      <div class="form-group checkbox-group" [class.has-error]="validationErrors.step3.termsAccepted">
+        <label class="checkbox-container">
+          <input 
+            type="checkbox" 
+            id="termsAccepted" 
+            [(ngModel)]="formData.termsAccepted"
+            required
+          >
+          <span class="checkmark"></span>
+          <span class="checkbox-label">I agree to the <a href="#" class="text-link">terms & conditions</a></span>
+        </label>
+        <div class="error-text" *ngIf="validationErrors.step3.termsAccepted">
+          {{ validationErrors.step3.termsAccepted }}
+        </div>
+      </div>
+      
+      <div class="form-actions">
+        <button type="button" class="btn btn-outline" (click)="previousStep()">Back</button>
+        <button 
+          type="submit" 
+          class="btn btn-primary" 
+          (click)="submitForm()" 
+          [disabled]="isSubmitting"
+        >
+          <span *ngIf="!isSubmitting">Submit</span>
+          <span *ngIf="isSubmitting">
+            <i class="bi bi-arrow-repeat spin"></i> Submitting...
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="form-step success-message" *ngIf="formSubmitted">
+      <div class="success-icon">
+        <i class="bi bi-check-circle-fill"></i>
+      </div>
+      <h2>Thank You!</h2>
+      <p>Your referral has been submitted successfully. Our team will review the information and get in touch with you soon.</p>
+      <p>We've sent a confirmation email to <strong>{{ formData.email }}</strong> with all the details of your referral.</p>
+      <button type="button" class="btn btn-primary" (click)="resetForm()">Submit Another Referral</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,270 @@
+/* Modern Footer SCSS */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+$primary-color: #7a193d;     // Fleydo burgundy color
+$accent-color: #fbbd15;      // Fleydo gold/yellow accent
+$accent-color-dark: #e0a800; // Darker gold for hover states
+$light-color: #f8f9fa;
+$dark-color: #343a40;
+$gray-color: #6c757d;
+$transition-speed: 0.3s;
+
+.footer {
+  background: linear-gradient(135deg, $primary-color, darken($primary-color, 8%)); 
+  color: $light-color;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 5%;
+    
+    @media (min-width: 992px) {
+      flex-direction: row;
+      gap: 3rem;
+    }
+  }
+  
+  /* Logo ve Marka Bölümü */
+  .footer-brand {
+    flex: 1;
+    margin-bottom: 2rem;
+    
+    @media (min-width: 992px) {
+      max-width: 25%;
+    }
+    
+    .logo {
+      margin-bottom: 1.5rem;
+      
+      h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0;
+        background: linear-gradient(to right, $accent-color, lighten($accent-color, 15%));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+      
+      p {
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+        opacity: 0.9;
+      }
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 0.8rem;
+      
+      .social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        color: $light-color;
+        transition: all $transition-speed ease;
+        
+        &:hover {
+          background: $accent-color;
+          color: $primary-color;
+          transform: translateY(-3px);
+        }
+      }
+    }
+  }
+  
+  /* Footer Linkler Bölümü */
+  .footer-links-container {
+    flex: 3;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    
+    @media (min-width: 576px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (min-width: 992px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  .footer-section {
+    h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        width: 40px;
+        background: $accent-color;
+        border-radius: 5px;
+      }
+    }
+    
+    .footer-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      
+      li {
+        margin-bottom: 0.6rem;
+        
+        a {
+          color: $light-color;
+          text-decoration: none;
+          transition: all $transition-speed ease;
+          font-size: 0.95rem;
+          opacity: 0.85;
+          position: relative;
+          padding-left: 0;
+          
+          &:hover {
+            opacity: 1;
+            color: $accent-color;
+            padding-left: 5px;
+          }
+          
+          &::before {
+            content: '›';
+            position: absolute;
+            left: -10px;
+            opacity: 0;
+            transition: all $transition-speed ease;
+          }
+          
+          &:hover::before {
+            opacity: 1;
+            left: -5px;
+          }
+        }
+      }
+    }
+    
+    .contact-info {
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.8rem;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+        opacity: 0.85;
+        
+        i {
+          color: $accent-color;
+          font-size: 1.1rem;
+          margin-top: 3px;
+        }
+        
+        a {
+          color: $light-color;
+          text-decoration: none;
+          transition: color $transition-speed ease;
+          
+          &:hover {
+            color: $accent-color;
+          }
+        }
+      }
+    }
+    
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-top: 1rem;
+      
+      input {
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        height: 40px;
+        border-radius: 5px;
+        padding: 0 15px;
+        color: $light-color;
+        font-size: 0.9rem;
+        
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.5);
+        }
+        
+        &:focus {
+          outline: none;
+          background: rgba(255, 255, 255, 0.15);
+        }
+      }
+      
+      button {
+        background: $accent-color;
+        color: $primary-color;
+        border: none;
+        height: 40px;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all $transition-speed ease;
+        
+        &:hover {
+          background: $accent-color-dark;
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+  
+  /* Alt Kısım */
+  .footer-bottom {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+    
+    .copyright {
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+    
+    .legal-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      
+      a {
+        color: $light-color;
+        text-decoration: none;
+        font-size: 0.9rem;
+        opacity: 0.7;
+        transition: all $transition-speed ease;
+        
+        &:hover {
+          color: $accent-color;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

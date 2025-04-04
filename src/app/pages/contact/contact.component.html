@@ -1,0 +1,192 @@
+<div class="contact-page">
+    <!-- Hero Section -->
+    <div class="contact-hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Turning Ideas Into Reality</h1>
+          <p>Contact Us Today!</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Main Contact Section -->
+    <div class="contact-main">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Contact Information -->
+          <div class="contact-info">
+            <h2>Get In Touch</h2>
+            <p class="info-intro">We're here to help with your embedded systems needs. Reach out using any of the methods below.</p>
+            
+            <div class="info-blocks">
+              <!-- Address Block -->
+              <div class="info-block">
+                <div class="info-icon">
+                  <i class="bi bi-geo-alt"></i>
+                </div>
+                <div class="info-content">
+                  <h3>Address</h3>
+                  <p>Annenstr. 79<br>58453 Witten<br>Germany</p>
+                </div>
+              </div>
+              
+              <!-- Phone Block -->
+              <div class="info-block">
+                <div class="info-icon">
+                  <i class="bi bi-telephone"></i>
+                </div>
+                <div class="info-content">
+                  <h3>Phone</h3>
+                  <p><a href="tel:+4917680366461">+49 176 803 66 461</a></p>
+                </div>
+              </div>
+              
+              <!-- Email Block -->
+              <div class="info-block">
+                <div class="info-icon">
+                  <i class="bi bi-envelope"></i>
+                </div>
+                <div class="info-content">
+                  <h3>Email</h3>
+                  <p><a href="mailto:info@quendro.de">info quendro.de</a></p>
+                </div>
+              </div>
+              
+              <!-- Social Media Block -->
+              <div class="info-block">
+                <div class="info-icon">
+                  <i class="bi bi-share"></i>
+                </div>
+                <div class="info-content">
+                  <h3>Social Media</h3>
+                  <div class="social-links">
+                    <a href="https://www.linkedin.com/company/quendro-gmbh/" target="_blank" class="linkedin-link">
+                      <i class="bi bi-linkedin"></i>
+                      <span>Quendro GmbH</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Business Hours -->
+            <div class="business-hours">
+              <h3>Business Hours</h3>
+              <ul>
+                <li><span>Monday - Friday:</span> 9:00 AM - 6:00 PM</li>
+                <li><span>Saturday - Sunday:</span> Closed</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Contact Form -->
+          <div class="contact-form-container">
+            <h2>Send Us a Message</h2>
+            <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+            
+            <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName">First Name</label>
+                  <input 
+                    type="text" 
+                    id="firstName" 
+                    name="firstName" 
+                    [(ngModel)]="formData.firstName" 
+                    required
+                    #firstName="ngModel"
+                    class="form-control"
+                    [class.invalid]="firstName.invalid && (firstName.dirty || firstName.touched)"
+                  >
+                </div>
+                
+                <div class="form-group">
+                  <label for="lastName">Last Name</label>
+                  <input 
+                    type="text" 
+                    id="lastName" 
+                    name="lastName" 
+                    [(ngModel)]="formData.lastName" 
+                    required
+                    #lastName="ngModel"
+                    class="form-control"
+                    [class.invalid]="lastName.invalid && (lastName.dirty || lastName.touched)"
+                  >
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email <span class="required">*</span></label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  [(ngModel)]="formData.email" 
+                  required
+                  email
+                  #email="ngModel"
+                  class="form-control"
+                  [class.invalid]="email.invalid && (email.dirty || email.touched)"
+                >
+                <div class="error-message" *ngIf="email.invalid && (email.dirty || email.touched)">
+                  <span *ngIf="email.errors?.['required']">Email is required</span>
+                  <span *ngIf="email.errors?.['email']">Please enter a valid email</span>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea 
+                  id="message" 
+                  name="message" 
+                  [(ngModel)]="formData.message" 
+                  rows="5"
+                  class="form-control"
+                ></textarea>
+              </div>
+              
+              <div class="form-group checkbox-group">
+                <label class="checkbox-container">
+                  <input 
+                    type="checkbox" 
+                    id="consent" 
+                    name="consent" 
+                    [(ngModel)]="formData.consent" 
+                    required
+                    #consent="ngModel"
+                  >
+                  <span class="checkmark"></span>
+                  <span class="checkbox-label">I consent to having this website store my submitted information so they can respond to my inquiry.</span>
+                </label>
+                <div class="error-message" *ngIf="consent.invalid && (consent.dirty || consent.touched)">
+                  <span *ngIf="consent.errors?.['required']">You must accept the terms to continue</span>
+                </div>
+              </div>
+              
+              <button type="submit" class="btn btn-primary" [disabled]="!contactForm.valid">Send</button>
+            </form>
+            
+            <!-- Success message (shown when form is submitted) -->
+            <div class="success-message" *ngIf="submitted">
+              <i class="bi bi-check-circle"></i>
+              <h3>Thank You!</h3>
+              <p>Your message has been sent successfully. We'll get back to you shortly.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Map Section -->
+    <div class="map-section">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2485.7169194018695!2d7.333088915764254!3d51.44236647962468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b920e1ea1c33ed%3A0xcf7fbe9d4cd79876!2sAnnenstra%C3%9Fe%2079%2C%2058453%20Witten%2C%20Germany!5e0!3m2!1sen!2sus!4v1648231539539!5m2!1sen!2sus" 
+        width="100%" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>

@@ -1,0 +1,286 @@
+<section class="trainings-page">
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Software Development Trainings</h1>
+          <p class="hero-subtitle">Master C and Modern C++ (C++11, C++14, C++17) with our comprehensive online courses</p>
+          <div class="hero-actions">
+            <a href="#course-catalog" class="cta-button primary">View Courses</a>
+            <a routerLink="/contact" class="cta-button secondary">Request Information</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-pattern"></div>
+    </div>
+  
+    <!-- Main Content -->
+    <div class="container">
+      <!-- Overview Section -->
+      <div class="overview-section">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="overview-content">
+              <div class="section-header text-left">
+                <h2>Online Software Development Courses</h2>
+                <div class="separator"></div>
+              </div>
+              <p class="lead-text">
+                Elevate your programming skills with our specialized courses in C and C++ programming.
+              </p>
+              <p>
+                Our training programs are designed for developers looking to master systems programming and 
+                embedded software development. We offer comprehensive courses covering both traditional C 
+                and modern C++ approaches, with a focus on practical applications.
+              </p>
+              <p>
+                Whether you're a beginner looking to build a strong foundation or an experienced developer 
+                wanting to update your skills with the latest C++ standards (C++11, C++14, C++17), our 
+                expert instructors will guide you through every step of the learning process.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="overview-image">
+              <img src="images/blog1.png" alt="Software Development Training">
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Features Section -->
+      <div class="features-section">
+        <div class="section-header">
+          <h2>Why Choose Our Training Programs</h2>
+          <p>What makes our programming courses stand out from the rest</p>
+        </div>
+  
+        <div class="features-grid">
+          <div *ngFor="let feature of trainingFeatures" class="feature-card">
+            <div class="feature-icon">
+              <i class="bi" [ngClass]="feature.icon"></i>
+            </div>
+            <h3>{{feature.title}}</h3>
+            <p>{{feature.description}}</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Course Catalog -->
+      <div id="course-catalog" class="course-catalog">
+        <div class="section-header">
+          <h2>Course Catalog</h2>
+          <p>Explore our specialized programming courses</p>
+        </div>
+  
+        <div class="catalog-tabs">
+          <div class="tab-buttons">
+            <button 
+              [ngClass]="{'active': activeTab === 'all'}" 
+              (click)="setActiveTab('all')">All Courses</button>
+            <button 
+              [ngClass]="{'active': activeTab === 'c'}" 
+              (click)="setActiveTab('c')">C Programming</button>
+            <button 
+              [ngClass]="{'active': activeTab === 'cpp'}" 
+              (click)="setActiveTab('cpp')">C++ Courses</button>
+          </div>
+  
+          <div class="courses-grid">
+            <div 
+              *ngFor="let course of courses" 
+              class="course-card"
+              [ngClass]="{'hidden': 
+                (activeTab === 'c' && !course.id.includes('c-programming') && !course.id.includes('advanced-c')) || 
+                (activeTab === 'cpp' && !course.id.includes('cpp') && !course.id.includes('embedded-cpp'))
+              }">
+              <div class="card-header">
+                <div class="course-icon">
+                  <i class="bi" [ngClass]="course.icon"></i>
+                </div>
+                <div class="course-meta">
+                  <span class="course-level">{{course.level}}</span>
+                  <span class="course-duration"><i class="bi bi-clock"></i> {{course.duration}}</span>
+                </div>
+              </div>
+              <h3 class="course-title">{{course.title}}</h3>
+              <p class="course-description">{{course.description}}</p>
+              <div class="course-topics">
+                <h4>What You'll Learn:</h4>
+                <ul>
+                  <li *ngFor="let topic of course.topics.slice(0, 5)">{{topic}}</li>
+                  <li *ngIf="course.topics.length > 5" class="more-topics">
+                    And {{course.topics.length - 5}} more topics...
+                  </li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <a routerLink="/contact" class="course-button">Request Info</a>
+                <a href="#" class="course-button outline">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Learning Approach -->
+      <div class="learning-approach">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="approach-image">
+              <img src="images/blog2.png" alt="Our Learning Approach">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="approach-content">
+              <div class="section-header text-left">
+                <h2>Our Learning Approach</h2>
+                <div class="separator"></div>
+              </div>
+              <p class="lead-text">
+                We believe in learning by doing, with a focus on practical skills development.
+              </p>
+              <div class="approach-features">
+                <div class="approach-item">
+                  <div class="item-icon">
+                    <i class="bi bi-mortarboard-fill"></i>
+                  </div>
+                  <div class="item-content">
+                    <h4>Structured Learning Path</h4>
+                    <p>Progressive curriculum that builds skills from fundamentals to advanced concepts.</p>
+                  </div>
+                </div>
+                <div class="approach-item">
+                  <div class="item-icon">
+                    <i class="bi bi-code-square"></i>
+                  </div>
+                  <div class="item-content">
+                    <h4>Hands-on Coding</h4>
+                    <p>Regular programming exercises and projects to apply and reinforce concepts.</p>
+                  </div>
+                </div>
+                <div class="approach-item">
+                  <div class="item-icon">
+                    <i class="bi bi-kanban"></i>
+                  </div>
+                  <div class="item-content">
+                    <h4>Real-world Projects</h4>
+                    <p>Work on practical applications that mirror industry challenges and scenarios.</p>
+                  </div>
+                </div>
+                <div class="approach-item">
+                  <div class="item-icon">
+                    <i class="bi bi-person-video3"></i>
+                  </div>
+                  <div class="item-content">
+                    <h4>Mentorship</h4>
+                    <p>Guidance from experienced developers who provide feedback and code reviews.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Testimonials Section -->
+      <div class="testimonials-section">
+        <div class="section-header">
+          <h2>Student Success Stories</h2>
+          <p>Hear from developers who have enhanced their skills through our courses</p>
+        </div>
+  
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="quote-icon">
+              <i class="bi bi-quote"></i>
+            </div>
+            <p class="testimonial-text">
+              "The Modern C++ course was exactly what I needed to update my skills. The instructor's expertise 
+              and the hands-on approach helped me understand complex concepts like move semantics and lambda expressions."
+            </p>
+            <div class="testimonial-author">
+              <img src="images/anna.png" alt="Thomas K." class="author-image">
+              <div class="author-info">
+                <h4>Thomas K.</h4>
+                <p>Software Engineer</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="quote-icon">
+              <i class="bi bi-quote"></i>
+            </div>
+            <p class="testimonial-text">
+              "As someone transitioning from web development to embedded systems, the C Programming 
+              Fundamentals course provided an excellent foundation. The projects were challenging and relevant."
+            </p>
+            <div class="testimonial-author">
+              <img src="images/robert.png" alt="Jennifer M." class="author-image">
+              <div class="author-info">
+                <h4>Jennifer M.</h4>
+                <p>Web Developer</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="quote-icon">
+              <i class="bi bi-quote"></i>
+            </div>
+            <p class="testimonial-text">
+              "The Embedded Programming with C++ course helped me bridge the gap between theory and practical 
+              application. I now confidently develop firmware for IoT devices using modern C++ techniques."
+            </p>
+            <div class="testimonial-author">
+              <img src="images/team.png" alt="Michael R." class="author-image">
+              <div class="author-info">
+                <h4>Michael R.</h4>
+                <p>Embedded Systems Developer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Upcoming Courses -->
+      <div class="upcoming-section">
+        <div class="upcoming-content">
+          <h2>Upcoming Course Sessions</h2>
+          <p>Our next training sessions are starting soon. Register now to secure your spot.</p>
+          <div class="upcoming-courses">
+            <div class="upcoming-item">
+              <div class="course-name">C Programming Fundamentals</div>
+              <div class="course-date">Starts: January 15, 2025</div>
+              <div class="course-info">Online • 8 Weeks • Live Sessions</div>
+            </div>
+            <div class="upcoming-item">
+              <div class="course-name">Modern C++ (C++11/14/17)</div>
+              <div class="course-date">Starts: February 5, 2025</div>
+              <div class="course-info">Online • 12 Weeks • Live Sessions</div>
+            </div>
+            <div class="upcoming-item">
+              <div class="course-name">Advanced C Programming</div>
+              <div class="course-date">Starts: March 10, 2025</div>
+              <div class="course-info">Online • 10 Weeks • Live Sessions</div>
+            </div>
+          </div>
+          <a routerLink="/contact" class="cta-button primary">Register Now</a>
+        </div>
+        <div class="upcoming-image">
+          <img src="images/blog3.png" alt="Register for upcoming courses">
+        </div>
+      </div>
+  
+      <!-- CTA Section -->
+      <div class="cta-section">
+        <div class="cta-content">
+          <h2>Ready to Advance Your Programming Skills?</h2>
+          <p>Join our online courses and master C and Modern C++ programming with expert guidance.</p>
+          <div class="cta-buttons">
+            <a routerLink="/contact" class="cta-button primary">Contact Us</a>
+            <a href="#course-catalog" class="cta-button secondary">View Courses</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

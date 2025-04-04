@@ -1,0 +1,183 @@
+<!-- Modern Home Page HTML Template -->
+<div class="home-page">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-background">
+      <img src="images/blog1.png" alt="Digital Innovation" />
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title"><span class="text-gradient">Innovative</span> Solutions</h1>
+        <p class="hero-subtitle">Building tomorrow's technology today</p>
+        <div class="hero-buttons">
+          <a [routerLink]="['/services']" class="btn btn-primary">Our Services</a>
+          <a [routerLink]="['/contact']" class="btn btn-outline-light">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Overview Section -->
+  <section class="services-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Core Services</span>
+        <h2>Unlock Your Business <span class="text-gradient">Potential</span></h2>
+        <p>We provide comprehensive technology solutions to drive your business forward.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card" *ngFor="let service of services">
+          <div class="service-icon">
+            <i class="bi" [ngClass]="service.icon"></i>
+          </div>
+          <h3>{{service.title}}</h3>
+          <p>{{service.description}}</p>
+          <a [routerLink]="[service.route]" class="service-link">Learn More <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section class="about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content">
+          <span class="section-tag">About Quendro</span>
+          <h2>Expert Team with <span class="text-gradient">Passion</span> for Technology</h2>
+          <p>Quendro GmbH is a forward-thinking technology company based in Germany, specializing in innovative solutions across various industries. With a team of experienced professionals, we bring together diverse expertise to solve complex problems.</p>
+          
+          <div class="stats-container">
+            <div class="stat-item">
+              <span class="stat-number">10+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100+</span>
+              <span class="stat-label">Projects Completed</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Happy Clients</span>
+            </div>
+          </div>
+          
+          <a [routerLink]="['/about']" class="btn btn-primary">More About Us</a>
+        </div>
+        <div class="about-image">
+          <img src="images/team.png" alt="Quendro Team" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Competencies Section -->
+  <section class="tech-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Expertise</span>
+        <h2>Technical <span class="text-gradient">Competencies</span></h2>
+        <p>We leverage cutting-edge technologies to deliver superior solutions.</p>
+      </div>
+
+      <div class="tech-slider">
+        <div class="tech-card" *ngFor="let tech of techCompetencies">
+          <div class="tech-icon">
+            <i class="bi" [ngClass]="tech.icon"></i>
+          </div>
+          <h3>{{tech.title}}</h3>
+          <p>{{tech.description}}</p>
+        </div>
+      </div>
+      
+      <div class="tech-button-container">
+        <a [routerLink]="['/tech-competencies']" class="btn btn-outline">View All Technologies</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries Section -->
+  <section class="industries-section">
+    <div class="container">
+      <div class="section-header light">
+        <span class="section-tag">Industries</span>
+        <h2>Sectors We <span class="text-light-gradient">Serve</span></h2>
+        <p>Our solutions are tailored to meet the specific needs of various industries.</p>
+      </div>
+
+      <div class="industries-grid">
+        <div class="industry-card" *ngFor="let industry of industries">
+          <div class="industry-icon">
+            <i class="bi" [ngClass]="industry.icon"></i>
+          </div>
+          <h3>{{industry.name}}</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Testimonials</span>
+        <h2>What Our <span class="text-gradient">Clients</span> Say</h2>
+        <p>Feedback from our satisfied clients around the world.</p>
+      </div>
+
+      <div class="testimonials-slider">
+        <div class="testimonial-card" *ngFor="let testimonial of testimonials">
+          <div class="quote-icon">
+            <i class="bi bi-quote"></i>
+          </div>
+          <p class="testimonial-text">"{{testimonial.text}}"</p>
+          <div class="testimonial-author">
+            <img [src]="testimonial.image" [alt]="testimonial.author" class="author-image">
+            <div class="author-info">
+              <h4>{{testimonial.author}}</h4>
+              <p>{{testimonial.position}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Insights Section -->
+  <section class="insights-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Insights</span>
+        <h2>Latest <span class="text-gradient">Articles</span> & Updates</h2>
+        <p>Stay informed with our latest industry insights and company news.</p>
+      </div>
+
+      <div class="insights-grid">
+        <div class="insight-card" *ngFor="let post of blogPosts">
+          <div class="insight-image">
+            <img [src]="post.image" [alt]="post.title">
+          </div>
+          <div class="insight-content">
+            <span class="insight-date">{{post.date}}</span>
+            <h3>{{post.title}}</h3>
+            <p>{{post.summary}}</p>
+            <a href="#" class="insight-link">Read More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Transform Your Business?</h2>
+        <p>Contact our experts today to discuss how we can help you achieve your goals.</p>
+        <a [routerLink]="['/contact']" class="btn btn-light">Get Started</a>
+      </div>
+    </div>
+  </section>
+</div>

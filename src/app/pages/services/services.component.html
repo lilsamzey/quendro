@@ -1,0 +1,221 @@
+<section class="services-page">
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Our Services</h1>
+          <p class="hero-subtitle">Advanced solutions for embedded systems, FPGA, and electronic hardware development</p>
+          <div class="hero-actions">
+            <a routerLink="/contact" class="cta-button primary">Contact Our Team</a>
+            <a routerLink="/services/custom-software-development" class="cta-button secondary">Custom Solutions</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-pattern"></div>
+    </div>
+  
+    <!-- Main Content -->
+    <div class="container">
+      <!-- Service Categories Grid -->
+      <div class="service-categories">
+        <div class="section-header">
+          <h2>Our Expertise</h2>
+          <p>We offer a comprehensive range of services to meet your technology needs</p>
+        </div>
+  
+        <div class="categories-grid">
+          <div *ngFor="let category of serviceCategories" class="category-card" [id]="category.id">
+            <div class="card-icon">
+              <i class="bi" [ngClass]="category.icon"></i>
+            </div>
+            <h3>{{category.title}}</h3>
+            <p>{{category.description}}</p>
+            <a href="#{{category.id}}-details" class="card-link">Learn More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Overview Section -->
+      <div class="service-details" id="overview-details">
+        <div class="details-content">
+          <div class="details-header">
+            <h2>Overview of Our Services</h2>
+            <div class="separator"></div>
+          </div>
+          <p class="lead-text">
+            With over 15 years of experience, our team specializes in software, FPGA, and electronic hardware development, 
+            focusing on efficiency and performance for mission-critical applications.
+          </p>
+          <p>
+            We have a highly skilled team with expertise in Software (C, C++), FPGA (Verilog, VHDL), and Electronic Hardware development. 
+            We primarily work on embedded systems with microcontrollers such as ESP32, STM32, Nordic nRF Series, and Arduino, 
+            delivering efficient and reliable solutions tailored to specific requirements.
+          </p>
+          <p>
+            We work on both contract and project-based engagements, prioritizing "Efficiency First Design" principles to optimize 
+            performance, power consumption, and resource utilization for all our clients.
+          </p>
+  
+          <div class="key-features">
+            <div class="feature">
+              <i class="bi bi-lightning-charge"></i>
+              <h4>Rapid Prototyping</h4>
+              <p>We offer rapid prototyping embedded solutions to help you bring your ideas to life quickly and effectively.</p>
+            </div>
+            <div class="feature">
+              <i class="bi bi-speedometer2"></i>
+              <h4>High-Speed Data Transfer</h4>
+              <p>Over 15 years of experience with high-speed data transfer technologies, including DMA (Direct Memory Access).</p>
+            </div>
+            <div class="feature">
+              <i class="bi bi-tools"></i>
+              <h4>Board Bring-Up</h4>
+              <p>Expertise in board bring-up processes, ensuring hardware functions correctly with software components.</p>
+            </div>
+          </div>
+        </div>
+        <div class="details-image">
+          <img src="images/blog1.png" alt="Our Services Overview">
+        </div>
+      </div>
+  
+      <!-- Embedded Systems Section -->
+      <div class="service-details reversed" id="embedded-systems-details">
+        <div class="details-image">
+          <img src="images/blog2.png" alt="Embedded Systems Development">
+        </div>
+        <div class="details-content">
+          <div class="details-header">
+            <h2>Embedded Systems</h2>
+            <div class="separator"></div>
+          </div>
+          <p class="lead-text">
+            We specialize in developing sophisticated embedded systems using a variety of microcontroller platforms.
+          </p>
+          <p>
+            Our team has extensive experience working with popular microcontroller platforms including ESP32, STM32, 
+            Nordic nRF Series, and Arduino. We develop customized firmware and software solutions that effectively 
+            leverage the capabilities of these platforms.
+          </p>
+          <p>
+            We also have expertise in Real-Time Operating Systems (RTOS), Bare Metal CPU programming, and Yocto/Petalinux-based 
+            Embedded Linux. Our team can modify Linux Device Trees and customize Embedded Linux distributions to meet specific requirements.
+          </p>
+          
+          <div class="tech-tags">
+            <span class="tag">ESP32</span>
+            <span class="tag">STM32</span>
+            <span class="tag">Nordic nRF</span>
+            <span class="tag">Arduino</span>
+            <span class="tag">RTOS</span>
+            <span class="tag">Bare Metal</span>
+            <span class="tag">Embedded Linux</span>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Communication Protocols Section -->
+      <div class="service-details" id="communication-protocols-details">
+        <div class="details-content">
+          <div class="details-header">
+            <h2>Communication Protocols</h2>
+            <div class="separator"></div>
+          </div>
+          <p class="lead-text">
+            We implement a wide range of communication protocols for diverse connectivity needs.
+          </p>
+          <p>
+            Our team has implemented numerous communication protocols on both FPGA and CPU platforms. These include BLE (Bluetooth Low Energy), 
+            WiFi 6, I2C, SPI, UART, LoRa, TCP/IP, UDP, and RS-232, among others.
+          </p>
+          <p>
+            We also have experience developing custom protocols for specialized applications. Our expertise extends to implementing 
+            advanced protocols such as SFP+, 1-wire, and PCI-e, ensuring seamless integration and communication between different system components.
+          </p>
+          
+          <div class="protocol-grid">
+            <div class="protocol-item">
+              <i class="bi bi-bluetooth"></i>
+              <span>BLE</span>
+            </div>
+            <div class="protocol-item">
+              <i class="bi bi-wifi"></i>
+              <span>WiFi 6</span>
+            </div>
+            <div class="protocol-item">
+              <i class="bi bi-usb-symbol"></i>
+              <span>SPI</span>
+            </div>
+            <div class="protocol-item">
+              <i class="bi bi-gpu-card"></i>
+              <span>I2C</span>
+            </div>
+            <div class="protocol-item">
+              <i class="bi bi-broadcast-pin"></i>
+              <span>LoRa</span>
+            </div>
+            <div class="protocol-item">
+              <i class="bi bi-globe"></i>
+              <span>TCP/IP</span>
+            </div>
+            <div class="protocol-item">
+              <i class="bi bi-send"></i>
+              <span>UDP</span>
+            </div>
+            <div class="protocol-item">
+              <i class="bi bi-device-ssd"></i>
+              <span>RS-232</span>
+            </div>
+          </div>
+        </div>
+        <div class="details-image">
+          <img src="images/blog3.png" alt="Communication Protocols">
+        </div>
+      </div>
+  
+      <!-- FPGA Development Section -->
+      <div class="service-details reversed" id="fpga-development-details">
+        <div class="details-image">
+          <img src="images/team.png" alt="FPGA Development">
+        </div>
+        <div class="details-content">
+          <div class="details-header">
+            <h2>FPGA Development</h2>
+            <div class="separator"></div>
+          </div>
+          <p class="lead-text">
+            We offer comprehensive FPGA development services using Verilog and VHDL.
+          </p>
+          <p>
+            Our team has proven experience working with various Xilinx FPGA chips, including Kintex, Virtex, ZYNQ, 
+            ZYNQ Ultrascale, and Spartan families. We develop custom IP cores and implement complex digital logic 
+            designs to meet specific performance and functionality requirements.
+          </p>
+          <p>
+            We are confident in our ability to handle board bring-ups and have successfully implemented numerous 
+            communication protocols on FPGA platforms. Our expertise enables us to create highly efficient, 
+            high-performance solutions for challenging applications.
+          </p>
+          
+          <div class="tech-tags">
+            <span class="tag">Verilog</span>
+            <span class="tag">VHDL</span>
+            <span class="tag">Kintex</span>
+            <span class="tag">Virtex</span>
+            <span class="tag">ZYNQ</span>
+            <span class="tag">ZYNQ Ultrascale</span>
+            <span class="tag">Spartan</span>
+          </div>
+        </div>
+      </div>
+  
+      <!-- CTA Section -->
+      <div class="cta-section">
+        <div class="cta-content">
+          <h2>Ready to Start Your Project?</h2>
+          <p>Contact our team today to discuss your requirements and how we can help you achieve your goals.</p>
+          <a routerLink="/contact" class="cta-button primary">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>

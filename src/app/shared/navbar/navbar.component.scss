@@ -1,0 +1,323 @@
+/* Modern Navbar SCSS */
+
+// Color variables that complement but differ from topbar
+$primary-color: #263750;       // Darker navy blue
+$accent-color: #e74c3c;        // Vibrant red accent (contrasts with gold in topbar)
+$accent-color-dark: #c0392b;   // Darker red for hover states
+$light-color: #ffffff;         // Pure white background
+$dark-color: #2c3e50;          // Dark text color
+$gray-color: #6c757d;          // Medium gray for subtle elements
+$transition-speed: 0.3s;       // Consistent transition speed
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: $light-color;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  .navbar-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+    
+    @media (max-width: 992px) {
+      height: 65px;
+    }
+  }
+  
+  /* Logo Bölümü */
+  .navbar-brand {
+    .logo-link {
+      display: block;
+      
+      .logo {
+        max-height: 42px;
+        transition: transform $transition-speed ease;
+        
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+  
+  /* Mobil Menü Butonu */
+  .mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: $primary-color;
+    cursor: pointer;
+    transition: color $transition-speed ease;
+    
+    &:hover {
+      color: $accent-color;
+    }
+    
+    @media (max-width: 992px) {
+      display: block;
+    }
+  }
+  
+  /* Ana Navigasyon Menüsü */
+  .navbar-menu {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    
+    @media (max-width: 992px) {
+      position: fixed;
+      top: 65px;
+      left: 0;
+      right: 0;
+      background-color: $light-color;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: height 0.35s ease, opacity 0.35s ease;
+      
+      &.is-active {
+        height: calc(100vh - 65px);
+        overflow-y: auto;
+        opacity: 1;
+      }
+    }
+  }
+  
+  /* Menü Linkleri */
+  .nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    
+    @media (max-width: 992px) {
+      flex-direction: column;
+      width: 100%;
+      padding: 20px 0;
+      align-items: stretch;
+    }
+    
+    .nav-item {
+      position: relative;
+      margin: 0 2px;
+      
+      @media (max-width: 992px) {
+        
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      
+      &.dropdown {
+        position: relative;
+      }
+      
+      .nav-link {
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        height: 75px;
+        color: $dark-color;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: all $transition-speed ease;
+        white-space: nowrap;
+        letter-spacing: 0.01em;
+        
+        i {
+          margin-right: 6px;
+          opacity: 0.7;
+          font-size: 0.85rem;
+          transition: all $transition-speed ease;
+          
+          &.dropdown-icon {
+            margin-left: 5px;
+            margin-right: 0;
+            font-size: 0.7rem;
+          }
+        }
+        
+        &:hover {
+          color: $accent-color;
+          
+          i {
+            opacity: 1;
+            transform: translateY(-1px);
+          }
+        }
+        
+        &.active {
+          color: $accent-color;
+          position: relative;
+          font-weight: 600;
+          
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 15px;
+            right: 15px;
+            height: 3px;
+            background: $accent-color;
+            border-radius: 3px 3px 0 0;
+          }
+          
+          i {
+            opacity: 1;
+          }
+        }
+        
+        &.dropdown-toggle {
+          cursor: pointer;
+        }
+        
+        @media (max-width: 992px) {
+          height: auto;
+          padding: 15px 20px;
+          border-radius: 0;
+         
+          
+          &.active::after {
+            display: none;
+          }
+        }
+      }
+      
+      /* İletişim Butonu */
+      .contact-button {
+        background: linear-gradient(135deg, $accent-color, $accent-color-dark);
+        color: white;
+        border-radius: 4px;
+        padding: 0 20px;
+        height: 42px;
+        margin-left: 15px;
+        font-weight: 600;
+        
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(231, 76, 60, 0.25);
+          color: white;
+        }
+        
+        &.active {
+          background: $accent-color-dark;
+          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+          
+          &::after {
+            display: none;
+          }
+        }
+        
+        @media (max-width: 992px) {
+          margin: 15px 20px;
+          border-radius: 4px;
+          padding: 12px 20px;
+          height: auto;
+          display: flex;
+          justify-content: center;
+        }
+      }
+      
+      /* Dropdown Menü */
+      .dropdown-menu {
+        position: absolute;
+        top: calc(100% + 5px);
+        left: 50%;
+        transform: translateX(-50%) translateY(10px);
+        background: white;
+        min-width: 220px;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        padding: 12px 0;
+        z-index: 100;
+        list-style: none;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          top: -5px;
+          left: 50%;
+          transform: translateX(-50%) rotate(45deg);
+          width: 10px;
+          height: 10px;
+          background: white;
+          border-radius: 2px;
+        }
+        
+        &.show {
+          opacity: 1;
+          visibility: visible;
+          transform: translateX(-50%) translateY(0);
+        }
+        
+        li {
+          position: relative;
+        }
+        
+        a {
+          display: block;
+          padding: 9px 20px;
+          color: $dark-color;
+          text-decoration: none;
+          font-size: 0.9rem;
+          transition: all $transition-speed ease;
+          position: relative;
+          
+          &:hover {
+            background: rgba(0, 0, 0, 0.03);
+            color: $accent-color;
+            padding-left: 24px;
+          }
+          
+          &.active {
+            color: $accent-color;
+            font-weight: 500;
+            background: rgba($accent-color, 0.05);
+          }
+        }
+        
+        @media (max-width: 992px) {
+          position: static;
+          box-shadow: none;
+          border-radius: 0;
+          background: rgba(0, 0, 0, 0.02);
+          transform: none;
+          max-height: 0;
+          overflow: hidden;
+          padding: 0;
+          
+          &::before {
+            display: none;
+          }
+          
+          &.show {
+            max-height: 500px;
+            padding: 10px 0;
+          }
+        }
+      }
+    }
+  }
+
+ 
+}
+
+@media (max-width: 992px) {
+  .navbar[_ngcontent-ng-c597523473] .nav-links[_ngcontent-ng-c597523473] .nav-item[_ngcontent-ng-c597523473] .dropdown-menu.show[_ngcontent-ng-c597523473] {
+   
+      margin-left: 160px;
+  }
+}

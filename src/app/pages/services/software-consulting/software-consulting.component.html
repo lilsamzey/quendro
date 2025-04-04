@@ -1,0 +1,277 @@
+<section class="consulting-page">
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Software Consulting</h1>
+          <p class="hero-subtitle">Bridging the gap between your ideas, challenges, and perfect software/hardware solutions</p>
+          <div class="hero-actions">
+            <a routerLink="/contact" class="cta-button primary">Get a Consultation</a>
+            <a routerLink="/services" class="cta-button secondary">View All Services</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-pattern"></div>
+    </div>
+  
+    <!-- Main Content -->
+    <div class="container">
+      <!-- Overview Section -->
+      <div class="overview-section">
+        <div class="overview-content">
+          <div class="section-header">
+            <h2>How We Help You</h2>
+            <div class="separator"></div>
+          </div>
+          <p class="lead-text">
+            We are helping fill in the technological blanks between your ideas, challenges, and perfect software/hardware solutions.
+          </p>
+          <p>
+            If you have a challenge to fix a specific technological issue or you want to upgrade your software products to new level, 
+            our consultants are ready to support you with their experience and knowledge.
+          </p>
+          <div class="overview-image">
+            <img src="images/blog1.png" alt="Software Consulting Services">
+          </div>
+        </div>
+      </div>
+  
+      <!-- Features Grid -->
+      <div class="features-section">
+        <div class="section-header">
+          <h2>Our Consulting Expertise</h2>
+          <p>Comprehensive technological solutions for your complex challenges</p>
+        </div>
+  
+        <div class="features-grid">
+          <div *ngFor="let feature of consultingFeatures" class="feature-card" [id]="feature.id">
+            <div class="card-icon">
+              <i class="bi" [ngClass]="feature.icon"></i>
+            </div>
+            <h3>{{feature.title}}</h3>
+            <p>{{feature.description}}</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Consulting Process -->
+      <div class="process-section">
+        <div class="section-header">
+          <h2>Our Consulting Process</h2>
+          <p>How we approach your technological challenges</p>
+        </div>
+  
+        <div class="process-flow">
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Discovery</h3>
+              <p>We begin by understanding your business, goals, and specific technological challenges through in-depth consultations.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Assessment</h3>
+              <p>Our experts evaluate existing systems, identify gaps, and analyze potential solution approaches.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Solution Design</h3>
+              <p>We develop tailored hardware/software solutions that address your specific requirements and challenges.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Implementation</h3>
+              <p>Our team executes the plan with precision, using rapid prototyping and iterative development approaches.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h3>Optimization</h3>
+              <p>We continuously refine and improve the solution to ensure optimal performance and scalability.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Case Study Section -->
+      <div class="case-study-section">
+        <div class="case-study-content">
+          <div class="case-study-text">
+            <h2>Success Through Collaboration</h2>
+            <div class="separator"></div>
+            <p class="lead-text">
+              Our dynamic team combines expertise in software development, FPGA integration, and electronic hardware
+              to create comprehensive solutions for complex technical challenges.
+            </p>
+            <p>
+              We specialize in systems that integrate FPGA (Field Programming Gate Arrays) with ADC and DAC components,
+              leveraging our extensive experience in high-speed data transfer technologies like DMA (Direct Memory Access).
+            </p>
+            <p>
+              Our consultants bring more than 15 years of experience to help you navigate complex technological landscapes
+              and implement efficient, reliable solutions that drive your business forward.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">C/C++</span>
+              <span class="tag">Verilog</span>
+              <span class="tag">VHDL</span>
+              <span class="tag">FPGA</span>
+              <span class="tag">ADC/DAC</span>
+              <span class="tag">DMA</span>
+              <span class="tag">High-Speed Data</span>
+            </div>
+          </div>
+          <div class="case-study-image">
+            <img src="images/blog2.png" alt="Advanced Technical Solutions">
+          </div>
+        </div>
+      </div>
+  
+      <!-- Microcontrollers Section -->
+      <div class="microcontrollers-section">
+        <div class="section-header">
+          <h2>Microcontroller Expertise</h2>
+          <p>Working with the industry's most reliable platforms</p>
+        </div>
+  
+        <div class="microcontrollers-content">
+          <div class="microcontrollers-image">
+            <img src="images/blog3.png" alt="Microcontroller Development">
+          </div>
+          <div class="microcontrollers-list">
+            <div class="microcontroller-item">
+              <div class="item-icon">
+                <i class="bi bi-cpu-fill"></i>
+              </div>
+              <div class="item-content">
+                <h4>ESP32</h4>
+                <p>Low-power system with integrated Wi-Fi and Bluetooth, perfect for IoT applications.</p>
+              </div>
+            </div>
+            <div class="microcontroller-item">
+              <div class="item-icon">
+                <i class="bi bi-cpu-fill"></i>
+              </div>
+              <div class="item-content">
+                <h4>STM32</h4>
+                <p>High-performance ARM Cortex-M based microcontrollers for demanding applications.</p>
+              </div>
+            </div>
+            <div class="microcontroller-item">
+              <div class="item-icon">
+                <i class="bi bi-cpu-fill"></i>
+              </div>
+              <div class="item-content">
+                <h4>Nordic nRF Series</h4>
+                <p>Ultra-low power SoCs ideal for Bluetooth Low Energy applications.</p>
+              </div>
+            </div>
+            <div class="microcontroller-item">
+              <div class="item-icon">
+                <i class="bi bi-cpu-fill"></i>
+              </div>
+              <div class="item-content">
+                <h4>Arduino</h4>
+                <p>Versatile platform for quick prototyping and educational projects.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Communication Section -->
+      <div class="communication-section">
+        <div class="section-header">
+          <h2>Communication Protocols</h2>
+          <p>Expertise in diverse connectivity solutions</p>
+        </div>
+  
+        <div class="protocols-grid">
+          <div class="protocol-card">
+            <div class="protocol-icon">
+              <i class="bi bi-bluetooth"></i>
+            </div>
+            <h4>Bluetooth Low Energy</h4>
+            <p>Efficient wireless protocol for short-range communication with minimal power consumption.</p>
+          </div>
+          <div class="protocol-card">
+            <div class="protocol-icon">
+              <i class="bi bi-wifi"></i>
+            </div>
+            <h4>WiFi 6</h4>
+            <p>Latest wireless networking technology with improved efficiency and performance.</p>
+          </div>
+          <div class="protocol-card">
+            <div class="protocol-icon">
+              <i class="bi bi-diagram-3"></i>
+            </div>
+            <h4>I2C & SPI</h4>
+            <p>Serial communication protocols for interfacing with sensors and peripherals.</p>
+          </div>
+          <div class="protocol-card">
+            <div class="protocol-icon">
+              <i class="bi bi-broadcast-pin"></i>
+            </div>
+            <h4>LoRa</h4>
+            <p>Long-range, low-power wireless platform ideal for IoT networks.</p>
+          </div>
+          <div class="protocol-card">
+            <div class="protocol-icon">
+              <i class="bi bi-globe"></i>
+            </div>
+            <h4>TCP/IP & UDP</h4>
+            <p>Core Internet protocols for reliable data transmission and networking.</p>
+          </div>
+          <div class="protocol-card">
+            <div class="protocol-icon">
+              <i class="bi bi-usb-symbol"></i>
+            </div>
+            <h4>UART & RS-232</h4>
+            <p>Serial communication standards for device interconnection.</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Team Section -->
+      <div class="team-section">
+        <div class="team-content">
+          <div class="team-image">
+            <img src="images/team.png" alt="Our Consulting Team">
+          </div>
+          <div class="team-text">
+            <h2>Our Expert Team</h2>
+            <div class="separator"></div>
+            <p class="lead-text">
+              Our dynamic team combines expertise across multiple technical domains to deliver comprehensive solutions.
+            </p>
+            <p>
+              With specialists in software development, FPGA programming, and electronic hardware design,
+              we bring a multidisciplinary approach to every project. This enables us to address complex
+              challenges from multiple angles and develop integrated solutions that solve real-world problems.
+            </p>
+            <p>
+              Our consultants maintain cutting-edge knowledge in their fields through continuous learning
+              and professional development, ensuring that our clients benefit from the latest technological advancements.
+            </p>
+            <a routerLink="/contact" class="cta-button primary">Work With Our Team</a>
+          </div>
+        </div>
+      </div>
+  
+      <!-- CTA Section -->
+      <div class="cta-section">
+        <div class="cta-content">
+          <h2>Ready to Solve Your Technical Challenges?</h2>
+          <p>Contact our consultants today to discuss how we can help transform your ideas into reality.</p>
+          <a routerLink="/contact" class="cta-button primary">Schedule a Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>

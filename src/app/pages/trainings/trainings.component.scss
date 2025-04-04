@@ -1,0 +1,853 @@
+/* Trainings Component Styles */
+
+// Color variables to match your application theme
+$primary-color: #263750;      // Deep navy (from navbar)
+$accent-color: #e74c3c;       // Vibrant red (from navbar)
+$accent-color-dark: #c0392b;  // Darker red
+$light-color: #ffffff;        // White
+$dark-color: #2c3e50;         // Dark text
+$gray-color: #6c757d;         // Medium gray
+$light-gray: #f8f9fa;         // Light gray
+$gold-accent: #fbbd15;        // Gold accent (from topbar)
+$success-color: #2ecc71;      // Green for success elements
+
+// Transition speeds
+$transition-speed: 0.3s;
+$transition-speed-slow: 0.5s;
+
+// Container widths
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+// Row and column grid system
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.col-md-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 0 15px;
+  
+  @media (max-width: 768px) {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 30px;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Page styles
+.trainings-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: $dark-color;
+  background-color: $light-color;
+  overflow-x: hidden;
+}
+
+// Hero Section
+.hero-section {
+  position: relative;
+  background: linear-gradient(135deg, $primary-color, darken($primary-color, 10%));
+  color: $light-color;
+  padding: 80px 0;
+  margin-bottom: 60px;
+  overflow: hidden;
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      animation: fadeInUp 0.8s ease forwards;
+      
+      @media (max-width: 768px) {
+        font-size: 2.5rem;
+      }
+      
+      @media (max-width: 576px) {
+        font-size: 2rem;
+      }
+    }
+    
+    .hero-subtitle {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      opacity: 0.9;
+      max-width: 600px;
+      animation: fadeInUp 0.8s 0.2s ease forwards;
+    }
+    
+    .hero-actions {
+      display: flex;
+      gap: 15px;
+      animation: fadeInUp 0.8s 0.4s ease forwards;
+      
+      @media (max-width: 576px) {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  }
+  
+  .hero-pattern {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    z-index: 1;
+    opacity: 0.6;
+  }
+}
+
+// CTA Buttons
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all $transition-speed ease;
+  
+  &.primary {
+    background: linear-gradient(135deg, $accent-color, $accent-color-dark);
+    color: $light-color;
+    border: none;
+    
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba($accent-color, 0.3);
+    }
+  }
+  
+  &.secondary {
+    background-color: transparent;
+    color: $light-color;
+    border: 2px solid rgba($light-color, 0.7);
+    
+    &:hover {
+      background-color: rgba($light-color, 0.1);
+      border-color: $light-color;
+    }
+  }
+  
+  .cta-section & {
+    &.secondary {
+      color: $primary-color;
+      border-color: $primary-color;
+      
+      &:hover {
+        background-color: rgba($primary-color, 0.05);
+      }
+    }
+  }
+}
+
+// Learning Approach Section
+.learning-approach {
+  margin-bottom: 80px;
+  
+  .approach-image {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  .approach-content {
+    .lead-text {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: $primary-color;
+      margin-bottom: 25px;
+      font-weight: 500;
+    }
+  }
+  
+  .approach-features {
+    .approach-item {
+      display: flex;
+      margin-bottom: 25px;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      .item-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgba($accent-color, 0.1);
+        color: $accent-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+        flex-shrink: 0;
+        
+        i {
+          font-size: 22px;
+        }
+      }
+      
+      .item-content {
+        h4 {
+          font-size: 1.1rem;
+          font-weight: 600;
+          margin-bottom: 8px;
+          color: $primary-color;
+        }
+        
+        p {
+          color: $gray-color;
+          font-size: 0.95rem;
+          line-height: 1.6;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+// Testimonials Section
+.testimonials-section {
+  margin-bottom: 80px;
+  padding: 60px 0;
+  background-color: $light-gray;
+  
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .testimonial-card {
+    background-color: $light-color;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    position: relative;
+    transition: all $transition-speed ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      
+      .quote-icon {
+        background-color: $accent-color;
+        color: $light-color;
+      }
+    }
+    
+    .quote-icon {
+      position: absolute;
+      top: -20px;
+      left: 30px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: $primary-color;
+      color: $light-color;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all $transition-speed ease;
+      
+      i {
+        font-size: 20px;
+      }
+    }
+    
+    .testimonial-text {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: $gray-color;
+      margin-bottom: 25px;
+      font-style: italic;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      
+      .author-image {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 15px;
+      }
+      
+      .author-info {
+        h4 {
+          font-size: 1.05rem;
+          font-weight: 600;
+          margin: 0 0 5px;
+          color: $primary-color;
+        }
+        
+        p {
+          font-size: 0.85rem;
+          color: $gray-color;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+// Upcoming Courses Section
+.upcoming-section {
+  margin-bottom: 80px;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 40px;
+  align-items: center;
+  
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+  }
+  
+  .upcoming-content {
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: $primary-color;
+    }
+    
+    > p {
+      font-size: 1.05rem;
+      color: $gray-color;
+      margin-bottom: 30px;
+    }
+  }
+  
+  .upcoming-courses {
+    margin-bottom: 30px;
+    
+    .upcoming-item {
+      background-color: $light-gray;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-left: 4px solid $accent-color;
+      transition: all $transition-speed ease;
+      
+      &:hover {
+        transform: translateX(5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      .course-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: $primary-color;
+        margin-bottom: 5px;
+      }
+      
+      .course-date {
+        font-size: 0.9rem;
+        color: $accent-color;
+        font-weight: 500;
+        margin-bottom: 5px;
+      }
+      
+      .course-info {
+        font-size: 0.85rem;
+        color: $gray-color;
+      }
+    }
+  }
+  
+  .upcoming-image {
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+    
+    @media (max-width: 992px) {
+      order: -1;
+    }
+  }
+}
+
+// CTA Section
+.cta-section {
+  background: $light-gray;
+  border-radius: 15px;
+  margin-bottom: 80px;
+  overflow: hidden;
+  position: relative;
+  
+  .cta-content {
+    position: relative;
+    z-index: 2;
+    padding: 60px;
+    text-align: center;
+    
+    @media (max-width: 576px) {
+      padding: 40px 20px;
+    }
+    
+    h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: $primary-color;
+      
+      @media (max-width: 576px) {
+        font-size: 1.8rem;
+      }
+    }
+    
+    p {
+      font-size: 1.1rem;
+      color: $gray-color;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      
+      @media (max-width: 576px) {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+// Animation Keyframes
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Section Headers
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+  
+  h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+    color: $primary-color;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: $accent-color;
+      border-radius: 3px;
+    }
+  }
+  
+  p {
+    color: $gray-color;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  &.text-left {
+    text-align: left;
+    
+    h2::after {
+      left: 0;
+      transform: none;
+    }
+  }
+}
+
+// Separator
+.separator {
+  width: 80px;
+  height: 3px;
+  background: $accent-color;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+// Overview Section
+.overview-section {
+  margin-bottom: 80px;
+  
+  .overview-content {
+    .lead-text {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: $primary-color;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    
+    p {
+      margin-bottom: 20px;
+      line-height: 1.7;
+      color: $gray-color;
+    }
+  }
+  
+  .overview-image {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+// Features Section
+.features-section {
+  margin-bottom: 80px;
+  padding: 60px 0;
+  background-color: $light-gray;
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .feature-card {
+    background-color: $light-color;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    transition: all $transition-speed ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      
+      .feature-icon {
+        background: $accent-color;
+        color: $light-color;
+      }
+    }
+    
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: rgba($accent-color, 0.1);
+      color: $accent-color;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      transition: all $transition-speed ease;
+      
+      i {
+        font-size: 26px;
+      }
+    }
+    
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: $primary-color;
+    }
+    
+    p {
+      color: $gray-color;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Course Catalog
+.course-catalog {
+  margin-bottom: 80px;
+  
+  .catalog-tabs {
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+      gap: 10px;
+      
+      @media (max-width: 576px) {
+        flex-direction: column;
+        gap: 8px;
+      }
+      
+      button {
+        background: none;
+        border: 1px solid $gray-color;
+        padding: 10px 25px;
+        border-radius: 30px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: $gray-color;
+        cursor: pointer;
+        transition: all $transition-speed ease;
+        
+        &:hover {
+          border-color: $accent-color;
+          color: $accent-color;
+        }
+        
+        &.active {
+          background-color: $accent-color;
+          color: $light-color;
+          border-color: $accent-color;
+        }
+        
+        @media (max-width: 576px) {
+          width: 100%;
+        }
+      }
+    }
+    
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 30px;
+      
+      @media (max-width: 768px) {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+      
+      @media (max-width: 576px) {
+        grid-template-columns: 1fr;
+      }
+      
+      .course-card {
+        background-color: $light-color;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        padding: 30px;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        transition: all $transition-speed ease;
+        
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+          border-color: rgba($accent-color, 0.2);
+        }
+        
+        &.hidden {
+          display: none;
+        }
+        
+        .card-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 20px;
+          
+          .course-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: rgba($primary-color, 0.1);
+            color: $primary-color;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            i {
+              font-size: 24px;
+            }
+          }
+          
+          .course-meta {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            
+            .course-level {
+              font-size: 0.8rem;
+              font-weight: 600;
+              color: $primary-color;
+              margin-bottom: 5px;
+            }
+            
+            .course-duration {
+              font-size: 0.8rem;
+              color: $gray-color;
+              display: flex;
+              align-items: center;
+              
+              i {
+                margin-right: 5px;
+                font-size: 0.9rem;
+              }
+            }
+          }
+        }
+        
+        .course-title {
+          font-size: 1.4rem;
+          font-weight: 600;
+          margin-bottom: 15px;
+          color: $primary-color;
+        }
+        
+        .course-description {
+          color: $gray-color;
+          font-size: 0.95rem;
+          line-height: 1.6;
+          margin-bottom: 20px;
+        }
+        
+        .course-topics {
+          margin-bottom: 25px;
+          
+          h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: $dark-color;
+          }
+          
+          ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            
+            li {
+              position: relative;
+              padding-left: 22px;
+              margin-bottom: 6px;
+              font-size: 0.9rem;
+              color: $gray-color;
+              
+              &:before {
+                content: '✓';
+                position: absolute;
+                left: 0;
+                color: $accent-color;
+                font-weight: 700;
+              }
+              
+              &.more-topics {
+                color: $accent-color;
+                font-style: italic;
+                font-size: 0.85rem;
+                
+                &:before {
+                  content: '...';
+                  color: $gray-color;
+                }
+              }
+            }
+          }
+        }
+        
+        .card-footer {
+          display: flex;
+          gap: 10px;
+          
+          @media (max-width: 400px) {
+            flex-direction: column;
+          }
+          
+          .course-button {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all $transition-speed ease;
+            background-color: $accent-color;
+            color: $light-color;
+            
+            &:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 5px 15px rgba($accent-color, 0.2);
+            }
+            
+            &.outline {
+              background-color: transparent;
+              border: 1px solid $accent-color;
+              color: $accent-color;
+              
+              &:hover {
+                background-color: rgba($accent-color, 0.05);
+              }
+            }
+          }
+        }
+    }}}
+    }

@@ -1,0 +1,426 @@
+// Modern form styling with soft colors and clean design
+
+// Color variables
+$primary-color: #4361ee;
+$primary-hover: #3a56d4;
+$secondary-color: #6c757d;
+$success-color: #4caf50;
+$background-color: #f8f9fa;
+$card-bg: #ffffff;
+$border-color: #e0e0e0;
+$text-color: #212529;
+$text-muted: #6c757d;
+$error-color: #f44336;
+
+// Sizes and spacing
+$border-radius: 10px;
+$input-radius: 8px;
+$container-padding: 2rem;
+$input-height: 45px;
+
+// Font sizes (reduced by 20%)
+$font-xl: 2rem;     // was 2.5rem
+$font-lg: 1.2rem;   // was 1.5rem
+$font-md: 0.9rem;   // was 1.125rem
+$font-base: 0.8rem; // was 1rem
+$font-sm: 0.76rem;  // was 0.95rem
+$font-xs: 0.72rem;  // was 0.9rem
+
+// Shadows
+$card-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+$button-shadow: 0 4px 6px rgba(67, 97, 238, 0.15);
+
+// Base styles
+.referral-form-container {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: $text-color;
+  background-color: $background-color;
+  min-height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem 1rem;
+  }
+}
+
+// Form header styling
+.form-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  
+  h1 {
+    font-size: $font-xl;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: $primary-color;
+    
+    @media (max-width: 768px) {
+      font-size: 1.6rem;
+    }
+  }
+  
+  .subtitle {
+    font-size: $font-md;
+    color: $text-muted;
+    margin: 0;
+    
+    @media (max-width: 768px) {
+      font-size: $font-base;
+    }
+  }
+}
+
+// Progress tracker
+.form-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    
+    .step-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: white;
+      border: 2px solid $border-color;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: $secondary-color;
+      margin-bottom: 0.5rem;
+      transition: all 0.3s ease;
+      font-size: $font-sm;
+    }
+    
+    .step-label {
+      font-size: $font-xs;
+      color: $secondary-color;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      text-align: center;
+      
+      @media (max-width: 576px) {
+        font-size: 0.64rem;
+      }
+    }
+    
+    &.active {
+      .step-number {
+        background-color: $primary-color;
+        border-color: $primary-color;
+        color: white;
+      }
+      
+      .step-label {
+        color: $primary-color;
+        font-weight: 600;
+      }
+    }
+    
+    &.completed {
+      .step-number {
+        background-color: $success-color;
+        border-color: $success-color;
+        color: white;
+      }
+    }
+  }
+  
+  .progress-line {
+    flex-grow: 1;
+    height: 3px;
+    background-color: $border-color;
+    margin: 0 10px;
+    position: relative;
+    top: -16px;
+    z-index: 0;
+    
+    &.active {
+      background-color: $primary-color;
+    }
+    
+    @media (max-width: 576px) {
+      margin: 0 5px;
+    }
+  }
+}
+
+// Form card container
+.form-card {
+  background-color: $card-bg;
+  border-radius: $border-radius;
+  box-shadow: $card-shadow;
+  padding: $container-padding;
+  
+  @media (max-width: 576px) {
+    padding: 1.5rem;
+  }
+}
+
+// Form step styling
+.form-step {
+  h2 {
+    color: $text-color;
+    font-size: $font-lg;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .step-description {
+    color: $text-muted;
+    margin-bottom: 2rem;
+    font-size: $font-base;
+  }
+}
+
+// Form controls
+.form-group {
+  margin-bottom: 1.5rem;
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: $font-sm;
+    
+    .required {
+      color: $error-color;
+    }
+  }
+  
+  .form-control {
+    width: 100%;
+    height: $input-height;
+    padding: 0.75rem 1rem;
+    border: 1px solid $border-color;
+    border-radius: $input-radius;
+    font-size: $font-base;
+    transition: border-color 0.2s ease;
+    
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 0 3px rgba($primary-color, 0.15);
+    }
+    
+    &::placeholder {
+      color: lighten($text-muted, 20%);
+      font-size: $font-base;
+    }
+  }
+  
+  // Textarea style
+  .textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  // Select styling
+  .select-wrapper {
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid $secondary-color;
+      pointer-events: none;
+    }
+    
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      cursor: pointer;
+      padding-right: 2.5rem;
+    }
+  }
+  
+  // Input with icon
+  .input-with-icon {
+    position: relative;
+    
+    i {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $secondary-color;
+      font-size: $font-md;
+    }
+    
+    .form-control {
+      padding-left: 2.75rem;
+    }
+  }
+  
+  // Checkbox styling
+  &.checkbox-group {
+    margin-top: 1.75rem;
+    
+    .checkbox-container {
+      display: flex;
+      align-items: flex-start;
+      cursor: pointer;
+      position: relative;
+      padding-left: 28px;
+      user-select: none;
+      font-weight: normal;
+      
+      input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+        
+        &:checked ~ .checkmark {
+          background-color: $primary-color;
+          border-color: $primary-color;
+          
+          &:after {
+            display: block;
+          }
+        }
+      }
+      
+      .checkmark {
+        position: absolute;
+        top: 2px;
+        left: 0;
+        height: 18px;
+        width: 18px;
+        border: 2px solid $border-color;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+        
+        &:after {
+          content: "";
+          position: absolute;
+          display: none;
+          left: 5px;
+          top: 2px;
+          width: 5px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+        }
+      }
+      
+      .checkbox-label {
+        font-size: $font-sm;
+        line-height: 1.4;
+        color: $text-color;
+      }
+    }
+  }
+}
+
+// Form actions (buttons)
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  
+  @media (max-width: 576px) {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .btn {
+    padding: 0.7rem 1.8rem;
+    border-radius: $input-radius;
+    font-weight: 600;
+    font-size: $font-base;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    
+    @media (max-width: 576px) {
+      width: 100%;
+    }
+    
+    &.btn-primary {
+      background-color: $primary-color;
+      color: white;
+      box-shadow: $button-shadow;
+      
+      &:hover {
+        background-color: $primary-hover;
+      }
+    }
+    
+    &.btn-outline {
+      background-color: transparent;
+      color: $primary-color;
+      border: 1px solid $primary-color;
+      
+      &:hover {
+        background-color: rgba($primary-color, 0.05);
+      }
+    }
+  }
+}
+
+// Text link styling
+.text-link {
+  color: $primary-color;
+  text-decoration: none;
+  font-weight: 500;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Success message styling
+.success-message {
+  text-align: center;
+  padding: 2rem 1rem;
+  
+  .success-icon {
+    font-size: 3.2rem;
+    color: $success-color;
+    margin-bottom: 1.5rem;
+  }
+  
+  h2 {
+    color: $success-color;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: $font-md;
+    color: $text-color;
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .btn {
+    margin: 0 auto;
+  }
+}

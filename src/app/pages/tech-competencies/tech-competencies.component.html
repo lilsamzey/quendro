@@ -1,0 +1,257 @@
+<section class="tech-competencies-page">
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Technical Competencies</h1>
+          <p class="hero-subtitle">Expertise in Software, FPGA, and Electronic Hardware Development</p>
+          <div class="hero-actions">
+            <a routerLink="/contact" class="cta-button primary">Contact Our Team</a>
+            <a routerLink="/services" class="cta-button secondary">View Our Services</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-pattern"></div>
+    </div>
+  
+    <!-- Main Content -->
+    <div class="container">
+      <!-- Overview Section -->
+      <div class="overview-section">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="overview-content">
+              <div class="section-header text-left">
+                <h2>Our Technical Expertise</h2>
+                <div class="separator"></div>
+              </div>
+              <p class="lead-text">
+                We focus on "Efficiency First Design" principles to deliver optimized solutions for complex technical challenges.
+              </p>
+              <p>
+                Our team has expertise in Software (C, C++), FPGA (Verilog, VHDL), and Electronic Hardware development. 
+                We specialize in systems that integrate FPGA (Field Programming Gate Arrays) with ADC and DAC components, 
+                with over 10 years of experience in high-speed data transfer technologies such as Direct Memory Access (DMA).
+              </p>
+              <p>
+                We work on both contract and project-based engagements, providing customized solutions tailored to specific 
+                requirements. Whether you need embedded systems development, FPGA design, or software optimization, we're 
+                the right partner for your technical needs.
+              </p>
+              <p>
+                In addition to our development services, we offer online software development courses focusing on C and 
+                C++ programming, including modern C++ standards (C++11, C++14, C++17).
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="overview-image">
+              <img src="images/blog1.png" alt="Technical Competencies">
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Core Competencies -->
+      <div class="competencies-section">
+        <div class="section-header">
+          <h2>Core Technical Competencies</h2>
+          <p>Our diverse range of expertise in critical technologies</p>
+        </div>
+  
+        <div class="competencies-grid">
+          <div *ngFor="let competency of coreCompetencies" class="competency-card" [id]="competency.id">
+            <div class="card-header">
+              <div class="competency-icon">
+                <i class="bi" [ngClass]="competency.icon"></i>
+              </div>
+              <h3>{{competency.title}}</h3>
+            </div>
+            <p class="competency-description">{{competency.description}}</p>
+            <div class="skills-list">
+              <h4>Key Skills:</h4>
+              <ul>
+                <li *ngFor="let skill of competency.skills">{{skill}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- FPGA Development -->
+      <div class="fpga-section">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="fpga-image">
+              <img src="images/blog2.png" alt="FPGA Development">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="fpga-content">
+              <div class="section-header text-left">
+                <h2>FPGA Development</h2>
+                <div class="separator"></div>
+              </div>
+              <p class="lead-text">
+                We specialize in FPGA development using Verilog and VHDL, with extensive experience in board bring-ups.
+              </p>
+              <p>
+                Our team has implemented numerous communication protocols on FPGA and CPU platforms, including 
+                SFP+, SPI, I2C, 1-wire, TCP/IP, UDP, PCI-e, and we have experience developing custom protocols 
+                for specialized applications.
+              </p>
+              <p>
+                We have proven experience working with various Xilinx FPGA platforms:
+              </p>
+              <div class="platforms-grid">
+                <div *ngFor="let platform of xilinxPlatforms" class="platform-item">
+                  <div class="platform-icon">
+                    <i class="bi bi-cpu"></i>
+                  </div>
+                  <span>{{platform}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Embedded Systems -->
+      <div class="embedded-section">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="embedded-content">
+              <div class="section-header text-left">
+                <h2>Embedded Systems</h2>
+                <div class="separator"></div>
+              </div>
+              <p class="lead-text">
+                We deliver comprehensive embedded system solutions with expertise in multiple operating systems and platforms.
+              </p>
+              <p>
+                Our team has extensive experience with Real-Time Operating Systems, Bare Metal CPU programming, and 
+                Yocto/Petalinux-based Embedded Linux. We're able to modify Linux Devicetrees and customize 
+                Embedded Linux distributions to meet specific requirements.
+              </p>
+              <div class="feature-blocks">
+                <div class="feature-block">
+                  <div class="feature-icon">
+                    <i class="bi bi-layers"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Real-Time Operating Systems</h4>
+                    <p>Development and optimization of applications for RTOS environments.</p>
+                  </div>
+                </div>
+                <div class="feature-block">
+                  <div class="feature-icon">
+                    <i class="bi bi-cpu-fill"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Bare Metal CPU Programming</h4>
+                    <p>Direct hardware control without OS overhead for critical applications.</p>
+                  </div>
+                </div>
+                <div class="feature-block">
+                  <div class="feature-icon">
+                    <i class="bi bi-ubuntu"></i>
+                  </div>
+                  <div class="feature-content">
+                    <h4>Embedded Linux</h4>
+                    <p>Yocto/Petalinux customization and Linux Devicetree modifications.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="embedded-image">
+              <img src="images/blog3.png" alt="Embedded Systems">
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Communication Protocols -->
+      <div class="protocols-section">
+        <div class="section-header">
+          <h2>Communication Protocols</h2>
+          <p>Comprehensive implementation of diverse communication interfaces</p>
+        </div>
+  
+        <div class="protocols-content">
+          <p>
+            We have implemented a wide range of communication protocols on both FPGA and CPU platforms,
+            ensuring seamless integration and efficient data transfer between system components.
+          </p>
+          
+          <div class="protocols-grid">
+            <div *ngFor="let protocol of communicationProtocols" class="protocol-card">
+              <div class="protocol-icon">
+                <i class="bi bi-broadcast-pin"></i>
+              </div>
+              <h4>{{protocol}}</h4>
+            </div>
+            <div class="protocol-card custom">
+              <div class="protocol-icon">
+                <i class="bi bi-gear-wide-connected"></i>
+              </div>
+              <h4>Custom Protocol Development</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- High Speed Data Section -->
+      <div class="high-speed-section">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="high-speed-image">
+              <img src="images/team.png" alt="High Speed Data Transfer">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="high-speed-content">
+              <div class="section-header text-left">
+                <h2>High-Speed Data Transfer</h2>
+                <div class="separator"></div>
+              </div>
+              <p class="lead-text">
+                With over 10 years of experience in high-speed data transfer technologies, we deliver optimized performance.
+              </p>
+              <p>
+                We specialize in Direct Memory Access (DMA) implementations and other high-performance data transfer 
+                techniques. Our solutions are designed to maximize throughput while minimizing latency and system overhead.
+              </p>
+              <div class="metrics">
+                <div class="metric-item">
+                  <div class="metric-value">10+</div>
+                  <div class="metric-label">Years Experience</div>
+                </div>
+                <div class="metric-item">
+                  <div class="metric-value">DMA</div>
+                  <div class="metric-label">Technology</div>
+                </div>
+                <div class="metric-item">
+                  <div class="metric-value">High</div>
+                  <div class="metric-label">Efficiency</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- CTA Section -->
+      <div class="cta-section">
+        <div class="cta-content">
+          <h2>Ready to Leverage Our Technical Expertise?</h2>
+          <p>Contact our team today to discuss how our technical competencies can help solve your complex challenges.</p>
+          <div class="cta-buttons">
+            <a routerLink="/contact" class="cta-button primary">Contact Us</a>
+            <a routerLink="/services" class="cta-button secondary">Explore Our Services</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

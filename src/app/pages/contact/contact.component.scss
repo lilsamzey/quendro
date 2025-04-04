@@ -1,0 +1,416 @@
+// Contact Page Styling
+
+// Color variables
+$primary-color: #4361ee;
+$primary-dark: #3a56d4;
+$secondary-color: #6c757d;
+$dark-color: #343a40;
+$light-color: #f8f9fa;
+$white: #ffffff;
+$error-color: #dc3545;
+$success-color: #28a745;
+$border-color: #dee2e6;
+$gray-light: #e9ecef;
+$text-color: #333333;
+
+// Shadows and effects
+$box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+$transition: all 0.3s ease;
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Container
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+// Contact Hero Section
+.contact-hero {
+  background-color: $primary-color;
+  background: rgb(111, 2, 2);
+  padding: 80px 0;
+  text-align: center;
+  color: $white;
+  
+  @media (max-width: $breakpoint-md) {
+    padding: 60px 0;
+  }
+  
+  .hero-content {
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      
+      @media (max-width: $breakpoint-md) {
+        font-size: 2rem;
+      }
+    }
+    
+    p {
+      font-size: 1.5rem;
+      font-weight: 300;
+      opacity: 0.9;
+      margin: 0;
+      
+      @media (max-width: $breakpoint-md) {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+
+// Main Contact Section
+.contact-main {
+  padding: 80px 0;
+  background-color: $white;
+  
+  @media (max-width: $breakpoint-md) {
+    padding: 60px 0;
+  }
+  
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+      gap: 50px;
+    }
+  }
+}
+
+// Contact Information Styling
+.contact-info {
+  h2 {
+    font-size: 1.75rem;
+    color: $dark-color;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  .info-intro {
+    color: $secondary-color;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .info-blocks {
+    margin-bottom: 30px;
+    
+    .info-block {
+      display: flex;
+      margin-bottom: 25px;
+      
+      .info-icon {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background-color: rgba($primary-color, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+        
+        i {
+          font-size: 1.25rem;
+          color: $primary-color;
+        }
+      }
+      
+      .info-content {
+        h3 {
+          font-size: 1.15rem;
+          font-weight: 600;
+          margin: 0 0 5px;
+          color: $dark-color;
+        }
+        
+        p {
+          margin: 0;
+          color: $secondary-color;
+          font-size: 0.95rem;
+          line-height: 1.5;
+          
+          a {
+            color: $secondary-color;
+            text-decoration: none;
+            transition: $transition;
+            
+            &:hover {
+              color: $primary-color;
+            }
+          }
+        }
+        
+        .social-links {
+          display: flex;
+          
+          .linkedin-link {
+            display: flex;
+            align-items: center;
+            color: $secondary-color;
+            text-decoration: none;
+            transition: $transition;
+            font-size: 0.95rem;
+            
+            i {
+              font-size: 1.2rem;
+              margin-right: 8px;
+              color: #0077b5;
+            }
+            
+            &:hover {
+              color: #0077b5;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .business-hours {
+    background-color: $gray-light;
+    padding: 25px;
+    border-radius: 8px;
+    
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 0 0 15px;
+      color: $dark-color;
+    }
+    
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      
+      li {
+        margin-bottom: 10px;
+        font-size: 0.95rem;
+        color: $secondary-color;
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+        
+        span {
+          font-weight: 600;
+          color: $dark-color;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}
+
+// Contact Form Styling
+.contact-form-container {
+  background-color: $light-color;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: $box-shadow;
+  
+  @media (max-width: $breakpoint-md) {
+    padding: 30px;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+    color: $dark-color;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  
+  p {
+    color: $secondary-color;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+  }
+  
+  .contact-form {
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      
+      @media (max-width: $breakpoint-sm) {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+      
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: $dark-color;
+        
+        .required {
+          color: $error-color;
+        }
+      }
+      
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid $border-color;
+        border-radius: 5px;
+        font-size: 0.95rem;
+        transition: $transition;
+        
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+          box-shadow: 0 0 0 3px rgba($primary-color, 0.2);
+        }
+        
+        &.invalid {
+          border-color: $error-color;
+        }
+      }
+      
+      textarea.form-control {
+        resize: vertical;
+        min-height: 120px;
+      }
+      
+      .error-message {
+        font-size: 0.8rem;
+        color: $error-color;
+        margin-top: 5px;
+      }
+      
+      &.checkbox-group {
+        margin-top: 10px;
+        
+        .checkbox-container {
+          display: flex;
+          align-items: flex-start;
+          position: relative;
+          padding-left: 28px;
+          cursor: pointer;
+          font-size: 0.9rem;
+          user-select: none;
+          color: $secondary-color;
+          
+          input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+            
+            &:checked ~ .checkmark {
+              background-color: $primary-color;
+              border-color: $primary-color;
+              
+              &:after {
+                display: block;
+              }
+            }
+          }
+          
+          .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: $white;
+            border: 2px solid $border-color;
+            border-radius: 3px;
+            transition: $transition;
+            
+            &:after {
+              content: "";
+              position: absolute;
+              display: none;
+              left: 6px;
+              top: 2px;
+              width: 5px;
+              height: 10px;
+              border: solid $white;
+              border-width: 0 2px 2px 0;
+              transform: rotate(45deg);
+            }
+          }
+          
+          .checkbox-label {
+            line-height: 1.4;
+          }
+        }
+      }
+    }
+    
+    .btn {
+      padding: 12px 25px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      background-color: $primary-color;
+      color: $white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: $transition;
+      
+      &:hover {
+        background-color: $primary-dark;
+      }
+      
+      &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+    }
+  }
+  
+  // Success message
+  .success-message {
+    text-align: center;
+    padding: 30px 20px;
+    
+    i {
+      font-size: 3rem;
+      color: $success-color;
+      margin-bottom: 15px;
+      display: block;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      color: $dark-color;
+      margin-bottom: 10px;
+    }
+    
+    p {
+      font-size: 1rem;
+      color: $secondary-color;
+      margin: 0;
+    }
+  }
+}
+
+// Map Section
+.map-section {
+  height: 450px;
+  
+  iframe {
+    display: block;
+  }
+}
