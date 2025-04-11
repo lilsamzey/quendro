@@ -30,6 +30,8 @@ import { AerospaceComponent } from './pages/industries/aerospace/aerospace.compo
 import { FintechFinanceComponent } from './pages/industries/fintech-finance/fintech-finance.component';
 import { RoboticAcademyComponent } from './pages/trainings/robotic-academy/robotic-academy.component';
 
+import { ReferralsListComponent } from './pages/referrals-list/referrals-list.component';
+
 
 
 
@@ -75,6 +77,11 @@ export const routes: Routes = [
   { path: 'industries/automotive', component: AutomotiveComponent },
   { path: 'industries/aerospace', component: AerospaceComponent },
   { path: 'industries/fintech-finance', component: FintechFinanceComponent },
+
+  { 
+    path: 'services/referrals-list', 
+    component: ReferralsListComponent 
+  },
  
   { path: '**', redirectTo: '' }
 ];

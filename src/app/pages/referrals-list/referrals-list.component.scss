@@ -1,0 +1,311 @@
+/* src/app/components/referrals-list/referrals-list.component.scss */
+
+// Ana konteynır stilleri
+.referrals-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  // Başlık
+  .header {
+    margin-bottom: 30px;
+    
+    h1 {
+      font-size: 24px;
+      color: #333;
+      margin: 0 0 10px 0;
+    }
+    
+    p {
+      color: #666;
+      margin: 0;
+    }
+  }
+  
+  // Arama ve Filtreleme alanı
+  .filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    
+    .search-bar {
+      flex: 1;
+      display: flex;
+      max-width: 500px;
+      
+      input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px 0 0 4px;
+        outline: none;
+        
+        &:focus {
+          border-color: #007bff;
+        }
+      }
+      
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+        
+        &:hover {
+          background-color: #0069d9;
+        }
+      }
+    }
+    
+    .page-size {
+      display: flex;
+      align-items: center;
+      
+      label {
+        margin-right: 10px;
+        color: #666;
+      }
+      
+      select {
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        outline: none;
+        
+        &:focus {
+          border-color: #007bff;
+        }
+      }
+    }
+  }
+  
+  // Yükleniyor animasyonu
+  .loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+    
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(0, 123, 255, 0.2);
+      border-top: 4px solid #007bff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 15px;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    p {
+      color: #666;
+    }
+  }
+  
+  // Hata mesajı
+  .error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    
+    p {
+      margin: 0 0 10px 0;
+    }
+    
+    button {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      
+      &:hover {
+        background-color: #c82333;
+      }
+    }
+  }
+  
+  // Tablo stilleri
+  .table-container {
+    overflow-x: auto;
+    margin-bottom: 20px;
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      
+      th, td {
+        padding: 12px 15px;
+        text-align: left;
+      }
+      
+      th {
+        background-color: #f8f9fa;
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+        white-space: nowrap;
+        
+        &:hover {
+          background-color: #e9ecef;
+        }
+      }
+      
+      tbody tr {
+        border-bottom: 1px solid #ddd;
+        
+        &:hover {
+          background-color: #f8f9fa;
+        }
+      }
+      
+      td {
+        vertical-align: middle;
+      }
+    }
+    
+    .status-success {
+      color: #28a745;
+      
+      small {
+        opacity: 0.7;
+      }
+    }
+    
+    .status-error {
+      color: #dc3545;
+      
+      small {
+        opacity: 0.7;
+        text-decoration: underline dotted;
+        cursor: help;
+      }
+    }
+    
+    .actions {
+      display: flex;
+      gap: 5px;
+      
+      button {
+        padding: 6px 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+        white-space: nowrap;
+      }
+      
+      .btn-view {
+        background-color: #17a2b8;
+        color: white;
+        
+        &:hover {
+          background-color: #138496;
+        }
+      }
+      
+      .btn-email {
+        background-color: #28a745;
+        color: white;
+        
+        &:hover {
+          background-color: #218838;
+        }
+      }
+      
+      .btn-delete {
+        background-color: #dc3545;
+        color: white;
+        
+        &:hover {
+          background-color: #c82333;
+        }
+      }
+    }
+  }
+  
+  // Veri yoksa gösterilecek mesaj
+  .no-data {
+    text-align: center;
+    padding: 30px 0;
+    color: #6c757d;
+  }
+  
+  // Sayfalama
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    
+    button {
+      padding: 8px 12px;
+      margin: 0 5px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+      
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      
+      &:hover:not(:disabled) {
+        background-color: #f8f9fa;
+      }
+      
+      &.active {
+        background-color: #007bff;
+        color: white;
+        border-color: #007bff;
+      }
+    }
+    
+    .page-numbers {
+      display: flex;
+    }
+  }
+  
+  // Özet bilgisi
+  .summary {
+    text-align: center;
+    color: #6c757d;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  // Responsive düzenlemeler
+  @media (max-width: 768px) {
+    .filters {
+      flex-direction: column;
+      align-items: stretch;
+      
+      .search-bar {
+        margin-bottom: 10px;
+        max-width: none;
+      }
+    }
+    
+    .actions {
+      flex-direction: column;
+      
+      button {
+        margin-bottom: 5px;
+      }
+    }
+  }

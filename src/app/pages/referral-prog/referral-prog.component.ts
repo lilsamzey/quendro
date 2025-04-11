@@ -63,7 +63,8 @@ export class ReferralProgComponent {
   currentStep: number = 1;
   
   // API endpoint
-  private apiUrl = 'https://shark-app-9cc2u.ondigitalocean.app/register';
+   private apiUrl = 'https://shark-app-9cc2u.ondigitalocean.app/quendro-register';
+  //public  apiUrl = 'http://localhost:5000/quendro-register';
   
   // Loading state
   isSubmitting = false;

@@ -1,0 +1,154 @@
+<!-- src/app/components/referrals-list/referrals-list.component.html -->
+<div class="referrals-container">
+    <div class="header">
+      <h1>Referrals List</h1>
+      <p>All referrals are listed here. You can search, filter, and manage them.</p>
+    </div>
+    
+    <!-- Search and Filters -->
+    <div class="filters">
+      <div class="search-bar">
+        <input
+          type="text"
+          [(ngModel)]="searchTerm"
+          placeholder="Search by name, email, or company..."
+          (keyup.enter)="search()"
+        />
+        <button (click)="search()">Search</button>
+      </div>
+      
+      <div class="page-size">
+        <label>Per Page:</label>
+        <select [(ngModel)]="pageSize" (change)="currentPage = 1; loadReferrals()">
+          <option [value]="5">5</option>
+          <option [value]="10">10</option>
+          <option [value]="25">25</option>
+          <option [value]="50">50</option>
+        </select>
+      </div>
+    </div>
+    
+    <!-- Loading or Error Messages -->
+    <div *ngIf="loading" class="loading">
+      <div class="spinner"></div>
+      <p>Loading data...</p>
+    </div>
+    
+    <div *ngIf="error" class="error-message">
+      <p>{{ error }}</p>
+      <button (click)="loadReferrals()">Try Again</button>
+    </div>
+    
+    <!-- Referrals Table -->
+    <div *ngIf="!loading && !error" class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th (click)="changeSort('referenceId')">
+              Reference ID
+              <span *ngIf="sortColumn === 'referenceId'">
+                {{ sortDirection === 'asc' ? '▲' : '▼' }}
+              </span>
+            </th>
+            <th (click)="changeSort('fullName')">
+              Name
+              <span *ngIf="sortColumn === 'fullName'">
+                {{ sortDirection === 'asc' ? '▲' : '▼' }}
+              </span>
+            </th>
+            <th (click)="changeSort('email')">
+              Email
+              <span *ngIf="sortColumn === 'email'">
+                {{ sortDirection === 'asc' ? '▲' : '▼' }}
+              </span>
+            </th>
+            <th (click)="changeSort('referredCompany')">
+              Referred Company
+              <span *ngIf="sortColumn === 'referredCompany'">
+                {{ sortDirection === 'asc' ? '▲' : '▼' }}
+              </span>
+            </th>
+            <th (click)="changeSort('createdAt')">
+              Date
+              <span *ngIf="sortColumn === 'createdAt'">
+                {{ sortDirection === 'asc' ? '▲' : '▼' }}
+              </span>
+            </th>
+            <th (click)="changeSort('emailSent')">
+              Email Status
+              <span *ngIf="sortColumn === 'emailSent'">
+                {{ sortDirection === 'asc' ? '▲' : '▼' }}
+              </span>
+            </th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let referral of referrals">
+            <td>{{ referral.referenceId }}</td>
+            <td>{{ referral.fullName }}</td>
+            <td>{{ referral.email }}</td>
+            <td>{{ referral.referredCompany }}</td>
+            <td>{{ referral.createdAt | date:'MM/dd/yyyy HH:mm' }}</td>
+            <td [ngClass]="referral.emailSent ? 'status-success' : 'status-error'">
+              <span *ngIf="referral.emailSent">
+                Sent
+                <small *ngIf="referral.emailSentDate">
+                  ({{ referral.emailSentDate | date:'MM/dd/yyyy HH:mm' }})
+                </small>
+              </span>
+              <span *ngIf="!referral.emailSent">
+                Failed
+                <small *ngIf="referral.emailError" class="error-tooltip" [title]="referral.emailError">
+                  (Error)
+                </small>
+              </span>
+            </td>
+            <td class="actions">
+              <button class="btn-email" (click)="resendEmail(referral.id)" *ngIf="!referral.emailSent">Resend Email</button>
+              <button class="btn-delete" (click)="deleteReferral(referral.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <!-- No data message -->
+      <div *ngIf="referrals.length === 0" class="no-data">
+        <p>No referrals found.</p>
+      </div>
+    </div>
+    
+    <!-- Pagination -->
+    <div *ngIf="!loading && !error && totalPages > 1" class="pagination">
+      <button 
+        [disabled]="currentPage === 1" 
+        (click)="changePage(currentPage - 1)"
+      >
+        Previous
+      </button>
+      
+      <div class="page-numbers">
+        <button 
+          *ngFor="let page of [].constructor(totalPages); let i = index" 
+          [class.active]="currentPage === i + 1"
+          (click)="changePage(i + 1)"
+        >
+          {{ i + 1 }}
+        </button>
+      </div>
+      
+      <button 
+        [disabled]="currentPage === totalPages" 
+        (click)="changePage(currentPage + 1)"
+      >
+        Next
+      </button>
+    </div>
+    
+    <!-- Summary Info -->
+    <div *ngIf="!loading && !error" class="summary">
+      <p>
+        Showing {{ currentPage }} of {{ totalPages }} pages ({{ totalItems }} total referrals)
+      </p>
+    </div>
+  </div>
